@@ -7,13 +7,13 @@ class MyStack
   end
 
   def push(item)
-		@stack.push(item)
+		@stack[@stack.length] = item
 		self.top = @stack[-1]
   end
 
   def pop
 		@stack[-2] ? self.top = @stack[-2] : self.top = nil
-		@stack.pop
+		@stack.slice!(-1)
   end
 
   def empty?
