@@ -61,7 +61,7 @@ class LinkedList
 			while current.next != nil && current.next != node
 				current = current.next
 			end
-			current.next = current.next.next
+			current.next = current.next.next unless current.next === nil
 			while current.next != nil
 				current = current.next
 			end
@@ -79,4 +79,16 @@ class LinkedList
   def remove_front
 		self.head = self.head.next
   end
+
+  # This method iterates through the linked list and returns the search value if found. Returns -1 if it isn't found.
+	def search(node)
+		current = self.head
+		while current != nil
+			if current === node
+				return current
+			end
+			current = current.next
+		end
+		return -1
+	end
 end
