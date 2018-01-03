@@ -12,11 +12,11 @@ class MyStack
   end
 
   def pop
-		@stack[-2] ? self.top = @stack[-2] : self.top = nil
+		self.top = @stack[-2]
 		@stack.slice!(-1)
   end
 
   def empty?
-		@stack.length < 1 ? true : false
+		@stack.length < 1
   end
 end
