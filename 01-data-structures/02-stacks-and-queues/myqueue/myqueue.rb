@@ -21,6 +21,6 @@ class MyQueue
   end
 
   def empty?
-		@queue.length < 1 ? true : false
+		@queue.length < 1
   end
 end
