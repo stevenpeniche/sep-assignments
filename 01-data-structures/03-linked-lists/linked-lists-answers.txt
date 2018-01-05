@@ -1,0 +1,13 @@
+1) Spatial Locality is one of two terms used to define a node's locality of reference behavior. A node is said to have Spatial Locality if it's values exist in close memory locations(i.e. are close in memory space(RAM, CACHE, etc.)). This benefits performance
+because it lessens the workload of a machine when attempting to locate a node at a specific memory address.
+
+2) Benchmarks:
+- Test 1(Time to add 10,000 items)
+	- Array => .050 Milliseconds(local machine)
+	- Linked List => 4543.275 Milliseconds(local machine)
+- Test 2(Time to access 5000th item)
+	- Array => .001 Milliseconds(local machine)
+	- Linked List => .005 Milliseconds(local machine)
+- Test 3(Remove the 5000th item)
+	- Array => .005 Milliseconds(local machine)
+	- Linked List => .725 Milliseconds(local machine)

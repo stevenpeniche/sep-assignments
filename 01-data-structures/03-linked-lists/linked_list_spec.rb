@@ -7,6 +7,7 @@ RSpec.describe LinkedList, type: Class do
   let(:n1) { Node.new("Rob") }
   let(:n2) { Node.new("Ben") }
   let(:n3) { Node.new("Mike") }
+	let(:n4) { Node.new("Steven") }
   let(:llist) { LinkedList.new }
 
   describe "#add_to_tail" do
@@ -89,4 +90,22 @@ RSpec.describe LinkedList, type: Class do
       expect(llist.head).to eq nil
     end
   end
+
+	describe "#search" do
+		before do
+			llist.add_to_tail(n1)
+			llist.add_to_tail(n2)
+			llist.add_to_tail(n3)
+		end
+
+		it "returns the node if found" do
+			returned_value = llist.search(n2)
+			expect(returned_value).to eq n2
+		end
+
+		it "returns -1 if the node isn't found" do
+			returned_value = llist.search(n4)
+			expect(returned_value).to eq -1
+		end
+	end
 end
