@@ -5,16 +5,27 @@ class HashClass
   end
 
   def []=(key, value)
+		item = HashItem.new(key, value)
 		i = index(key, size)
-		while @items[i] != nil && @items[i][1] != value
-			resize
+		p "(Argument) key: #{key} value: #{value}" if @items[i] != nil
+		p "(@items[i]) key: #{@items[i].key} value: #{@items[i].value}" if @items[i] != nil
+		while @items[i] != nil
+			if @items[i].value === value
+				break
+			else
+				resize
+			end
 		end
-		@items[i] = [key, value]
+		@items[i] = item
   end
 
   def [](key)
 		i = index(key, size)
-		@items[i][1]
+		if @items[i].key === key
+			return @items[i].value
+		else
+			return -1 # If key/value pair doesn't exist
+		end
   end
 
   def resize
@@ -22,8 +33,7 @@ class HashClass
 		new_array = Array.new(new_size)
 		@items.each do |item|
 			if item != nil
-				key = item[0]
-				new_array[index(key, new_size)] = item
+				new_array[index(item.key, new_size)] = item
 			end
 		end
 		@items = new_array
