@@ -1,6 +1,7 @@
 require_relative 'node'
 
 class OpenAddressing
+	attr_reader :items, :load_factor
   def initialize(size)
 		@items = Array.new(size)
   end
@@ -66,4 +67,33 @@ class OpenAddressing
  		end
  		@items = new_array
   end
+
+  # Calculate load factor
+	def load_factor
+		node_count = 0.0
+		@items.each { |node| node_count+=1 if node != nil }
+		node_count / size
+	end
+
+	# Print hash load factor and key:value pairs
+	def print_hash
+		puts "Load Factor: #{load_factor}"
+		puts "{"
+		@items.each_with_index do |node, index|
+			if node != nil
+				puts " #{node.key} : #{node.value} (Index #{index})"
+			end
+		end
+		puts "}"
+	end
 end
+
+name_hash = OpenAddressing.new(5)
+name_hash['person1'] = 'Jon'
+name_hash.print_hash
+name_hash['person2'] = 'Daenerys'
+name_hash.print_hash
+name_hash['person3'] = 'Tyrion'
+name_hash.print_hash
+name_hash['person4'] = 'Cersei'
+name_hash.print_hash

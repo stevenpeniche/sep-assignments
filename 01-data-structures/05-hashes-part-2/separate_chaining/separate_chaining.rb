@@ -63,4 +63,32 @@ class SeparateChaining
 		end
 		@items = new_array
   end
+
+  # Print hash load factor and key:value pairs
+	def print_hash
+		puts "Load Factor: #{load_factor}"
+		puts "{"
+		@items.each_with_index do |list, index|
+			if list.head != nil
+				current = list.head
+				while current.next != nil
+					puts " #{current.key} : #{current.value} (Index #{index})"
+					current = current.next
+				end
+				puts " #{current.key} : #{current.value} (Index #{index})"
+			end
+		end
+		puts "}"
+	end
 end
+
+
+name_hash = SeparateChaining.new(5)
+name_hash['person1'] = 'Jon'
+name_hash.print_hash
+name_hash['person2'] = 'Daenerys'
+name_hash.print_hash
+name_hash['person3'] = 'Tyrion'
+name_hash.print_hash
+name_hash['person4'] = 'Cersei'
+name_hash.print_hash
