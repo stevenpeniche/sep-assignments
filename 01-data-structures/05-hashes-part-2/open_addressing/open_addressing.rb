@@ -20,14 +20,18 @@ class OpenAddressing
         resize
         @items[i] = value
       elsif next_open_index(i) != -1
-        @items[i] = value
+        @items[next_open_index(i)] = value
       end
     end
   end
 
   def [](key)
 		i = index(key, size)
-		@items[i].value
+		if @items[i].key === key
+			return @items[i].value
+		else
+			return -1 # If key/value pair doesn't exist
+		end
   end
 
   # Returns a unique, deterministically reproducible index into an array
