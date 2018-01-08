@@ -7,14 +7,13 @@ class HashClass
   def []=(key, value)
 		item = HashItem.new(key, value)
 		i = index(key, size)
-		p "(Argument) key: #{key} value: #{value}" if @items[i] != nil
-		p "(@items[i]) key: #{@items[i].key} value: #{@items[i].value}" if @items[i] != nil
+
 		while @items[i] != nil
-			if @items[i].value === value
-				break
-			else
-				resize
-			end
+      if @items[i].key != key || @items[i].value != value
+        resize
+      else
+        break
+      end
 		end
 		@items[i] = item
   end
