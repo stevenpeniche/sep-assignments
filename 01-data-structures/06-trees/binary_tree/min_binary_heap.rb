@@ -35,7 +35,6 @@ class MinBinaryHeap
   def delete(data)
     if @tree.reject! { |node| node.title === data }
       heapify(@tree.length - 1)
-      p @tree
     else
       return -1
     end
