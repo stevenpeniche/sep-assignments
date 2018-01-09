@@ -1,0 +1,14 @@
+Describe three collision resolution strategies not mentioned here.
+
+Response:
+1) Robin Hood hashing - Is a variation of double-hashing. It displaces a key that's already been inserted into a position if it's "probe count" is larger than the "probe count" of the key at that position.
+
+2) Random hashing - A pseudorandom number is generated and used to probe for available slots.
+
+3) 2-choice hashing - As it's name implies it contains two distinct hash functions. Both functions compute a location and the location that contains less objects is where the "Object" is placed. If the "Object" count at both locations are equal then the first function is used.
+
+Create your own collision resolution strategy and describe how it works.
+
+"Three Headed Hagon(hash + dragon)"
+
+This function is an extension of the "2-choice hashing" function. Three functions compute a prospective location based on a Key value. One of three heads(i.e. functions) is used. The first function is used if the "Object" count at it's computed location is less than the "Object" count at the second function's location. In the case that both locations have the same "Object" count, the third function is used.
