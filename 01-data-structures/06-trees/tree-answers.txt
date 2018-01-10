@@ -1,0 +1,23 @@
+1) In a "Min Binary Heap" the parent node's value is always less than the value of each child.
+   In a "Binary Search Tree" all nodes with a value less than it's parent node are set as a "left child",
+   and those with a greater value are set as a "right child".
+
+2) Benchmarks..
+
+  "Binary Search Tree"
+  - Insert: 0.006 milliseconds
+  - Find: 0.012 milliseconds
+  - Delete: 0.011 milliseconds
+
+  "Min Binary Heap"
+  - Insert: 0.002 milliseconds
+  - Find: 13.13 milliseconds
+  - Delete: 17.778 milliseconds
+
+  When would you use a "Binary Search Tree" and why?
+  - I would use a BST if nodes will be inserted randomly because it works best
+    when balanced.
+
+  When would you use a "Heap" and why?
+  - I would use a Heap if nodes will be inserted sequentially by value because
+    Heap nodes are maintained in an array. 
